@@ -12,7 +12,7 @@ type CartItemProps = {
 export function CartItem({ id, quantity }:CartItemProps){
     const {removeCartQuantity} = useShoppingCart()
     const item = storeItems.find(i => i.id === id)
-    if(item === null) return null
+    if(item == null) return null
 
     return(
         <Stack direction="horizontal" gap={2} className='d-flex align-items-center'>
@@ -23,11 +23,11 @@ export function CartItem({ id, quantity }:CartItemProps){
                 </div>
 
                 <div className='text-muted' style={ {fontSize: '.75rem'} }>
-                    {formatCurrency(item?.price)}
+                    {formatCurrency(item.price)}
                 </div>
             </div>
 
-            <div> {formatCurrency(item?.price * quantity)}</div>
+            <div> {formatCurrency(item.price * quantity)}</div>
             <Button variant='outline-danger' size='sm' onClick={() => removeCartQuantity(item.id)}>
                 &times; 
             </Button>
